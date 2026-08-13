@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>Inbox Dollar</title>
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -15,87 +16,111 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0 0 95px;
       background: #f4f6fa;
-      color: #172033;
-      padding-bottom: 85px;
+      color: #111827;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
     }
 
-    .top {
-      background: linear-gradient(135deg, #111827, #263449);
+    button {
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* HEADER */
+
+    .header {
+      background: linear-gradient(145deg, #0f172a, #263449);
       color: white;
-      padding: 24px 18px 70px;
-      border-radius: 0 0 30px 30px;
+      padding: 24px 18px 82px;
+      border-radius: 0 0 34px 34px;
     }
 
-    .top-row {
+    .header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .brand {
-      font-size: 23px;
-      font-weight: 800;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
     }
 
     .welcome {
       margin-top: 7px;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 800;
       opacity: 0.75;
     }
 
-    .profile-icon {
-      width: 44px;
-      height: 44px;
+    .avatar {
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.16);
       font-size: 21px;
     }
 
+    /* BALANCE */
+
     .balance-card {
       background: white;
-      margin: -45px 16px 20px;
-      border-radius: 22px;
+      margin: -52px 16px 23px;
       padding: 22px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(15,23,42,0.10);
     }
 
     .balance-label {
-      color: #7d8797;
-      font-size: 13px;
+      color: #8791a2;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
     }
 
     .balance {
-      font-size: 35px;
-      font-weight: 800;
-      margin: 5px 0 17px;
+      margin: 7px 0 18px;
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -1px;
     }
 
     .bonus-btn {
       width: 100%;
-      border: none;
+      border: 0;
       padding: 14px;
-      border-radius: 13px;
+      border-radius: 14px;
       background: #111827;
       color: white;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 900;
     }
+
+    /* GENERAL */
 
     .section {
       padding: 0 16px;
-      margin-top: 23px;
+      margin-top: 24px;
     }
 
     .section-title {
-      font-size: 19px;
-      font-weight: 800;
-      margin-bottom: 13px;
+      margin-bottom: 14px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
     }
+
+    /* STATS */
 
     .stats {
       display: grid;
@@ -103,57 +128,59 @@
       gap: 12px;
     }
 
-    .stat-card {
+    .stat {
       background: white;
       padding: 17px;
-      border-radius: 17px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      border-radius: 19px;
+      box-shadow: 0 5px 20px rgba(15,23,42,0.055);
     }
 
     .stat-icon {
       font-size: 23px;
     }
 
-    .stat-number {
-      font-size: 20px;
-      font-weight: 800;
+    .stat-value {
       margin-top: 8px;
+      font-size: 21px;
+      font-weight: 900;
     }
 
-    .stat-name {
-      color: #8a93a3;
-      font-size: 12px;
-      margin-top: 4px;
+    .stat-label {
+      margin-top: 5px;
+      color: #8993a5;
+      font-size: 11px;
+      font-weight: 800;
     }
 
     /* ADS */
 
     .ad-card {
       background: white;
-      border-radius: 19px;
       padding: 18px;
-      margin-bottom: 13px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+      border-radius: 21px;
+      box-shadow: 0 6px 22px rgba(15,23,42,0.06);
     }
 
-    .ad-top {
+    .ad-head {
       display: flex;
       align-items: center;
       gap: 13px;
     }
 
     .ad-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 23px;
+      flex-shrink: 0;
     }
 
     .lite-icon {
-      background: #eaf8ef;
+      background: #e9f8ef;
     }
 
     .pro-icon {
@@ -161,88 +188,118 @@
     }
 
     .premium-icon {
-      background: #f4eaff;
+      background: #f3e9ff;
     }
 
     .ad-info {
       flex: 1;
     }
 
-    .ad-name {
-      font-size: 16px;
-      font-weight: 800;
+    .ad-title {
+      font-size: 17px;
+      font-weight: 900;
     }
 
     .ad-description {
       margin-top: 4px;
-      font-size: 12px;
-      color: #8a93a3;
-    }
-
-    .ad-reward {
-      font-size: 15px;
-      font-weight: 800;
-      margin-top: 15px;
-    }
-
-    .ad-button {
-      width: 100%;
-      border: none;
-      padding: 12px;
-      border-radius: 12px;
-      margin-top: 13px;
+      color: #8993a5;
+      font-size: 11px;
       font-weight: 700;
-      font-size: 14px;
+      line-height: 1.45;
     }
 
-    .lite-button {
-      background: #111827;
-      color: white;
+    /* LIMIT */
+
+    .limit-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      color: #737e90;
+      font-size: 11px;
+      font-weight: 900;
     }
 
-    .pro-button {
+    .progress {
+      height: 7px;
+      background: #edf0f4;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 7px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: #111827;
+      border-radius: 20px;
+    }
+
+    /* REWARD */
+
+    .reward {
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .reward span {
+      font-weight: 900;
+    }
+
+    .watch-btn {
+      width: 100%;
+      border: 0;
+      padding: 13px;
+      margin-top: 14px;
+      border-radius: 13px;
       background: #111827;
       color: white;
+      font-size: 13px;
+      font-weight: 900;
     }
+
+    /* PREMIUM */
 
     .premium-card {
-      border: 1px solid #d9b8ff;
-      background: linear-gradient(145deg, #ffffff, #faf4ff);
+      border: 1px solid #ddc0ff;
+      background: linear-gradient(145deg, #ffffff, #faf3ff);
     }
 
     .premium-price {
-      font-size: 25px;
+      margin-top: 16px;
+      font-size: 29px;
       font-weight: 900;
-      margin-top: 15px;
     }
 
-    .premium-price span {
-      font-size: 12px;
-      color: #8a93a3;
-      font-weight: normal;
+    .premium-price small {
+      color: #8993a5;
+      font-size: 11px;
+      font-weight: 800;
     }
 
-    .premium-button {
-      background: #111827;
-      color: white;
+    .premium-note {
+      margin-top: 4px;
+      color: #8993a5;
+      font-size: 11px;
+      font-weight: 800;
     }
 
     /* QUICK ACTIONS */
 
     .quick-card {
-      background: white;
-      padding: 16px;
-      border-radius: 17px;
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 13px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      background: white;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(15,23,42,0.05);
     }
 
     .quick-icon {
-      width: 44px;
-      height: 44px;
+      width: 45px;
+      height: 45px;
       border-radius: 13px;
       background: #f0f2f6;
       display: flex;
@@ -256,19 +313,20 @@
     }
 
     .quick-title {
-      font-weight: 800;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 900;
     }
 
     .quick-sub {
-      color: #8a93a3;
-      font-size: 12px;
       margin-top: 4px;
+      color: #8993a5;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .arrow {
-      color: #8a93a3;
-      font-size: 20px;
+      color: #9ba3b1;
+      font-size: 22px;
     }
 
     /* BOTTOM NAV */
@@ -278,42 +336,41 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 72px;
-      background: white;
+      height: 78px;
+      background: rgba(255,255,255,0.98);
       border-top: 1px solid #e7eaf0;
       display: flex;
-      justify-content: space-around;
       align-items: center;
-      z-index: 100;
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.06);
+      justify-content: space-around;
+      z-index: 1000;
+      box-shadow: 0 -8px 25px rgba(15,23,42,0.07);
     }
 
-    .nav-item {
-      border: none;
+    .nav {
+      border: 0;
       background: transparent;
-      color: #8a93a3;
+      color: #929baa;
       font-size: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
+      font-weight: 800;
       padding: 7px 9px;
     }
 
     .nav-icon {
       font-size: 21px;
+      margin-bottom: 4px;
     }
 
-    .nav-item.active {
+    .nav.active {
       color: #111827;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .footer {
       text-align: center;
-      color: #9aa2b1;
-      font-size: 11px;
-      margin: 25px 0;
+      margin: 27px 0;
+      color: #a0a8b5;
+      font-size: 10px;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -322,22 +379,24 @@
 
   <!-- HEADER -->
 
-  <div class="top">
+  <header class="header">
 
-    <div class="top-row">
+    <div class="header-row">
 
       <div>
         <div class="brand">Inbox Dollar 💰</div>
-        <div class="welcome">Welcome back 👋</div>
+        <div class="welcome">
+          Earn rewards. Complete tasks. Get paid.
+        </div>
       </div>
 
-      <div class="profile-icon">
+      <div class="avatar">
         👤
       </div>
 
     </div>
 
-  </div>
+  </header>
 
 
   <!-- BALANCE -->
@@ -352,7 +411,7 @@
       $0.00
     </div>
 
-    <button class="bonus-btn" onclick="dailyBonus()">
+    <button class="bonus-btn" onclick="claimBonus()">
       🎁 Claim Daily Bonus
     </button>
 
@@ -361,66 +420,45 @@
 
   <!-- OVERVIEW -->
 
-  <div class="section">
+  <section class="section">
 
     <div class="section-title">
-      Overview
+      Your Overview
     </div>
 
     <div class="stats">
 
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          💵
-        </div>
-
-        <div class="stat-number">
-          $0.00
-        </div>
-
-        <div class="stat-name">
-          Today's Earnings
-        </div>
-
+      <div class="stat">
+        <div class="stat-icon">💵</div>
+        <div class="stat-value">$0.00</div>
+        <div class="stat-label">Today's Earnings</div>
       </div>
 
-
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          📋
-        </div>
-
-        <div class="stat-number">
-          0
-        </div>
-
-        <div class="stat-name">
-          Tasks Completed
-        </div>
-
+      <div class="stat">
+        <div class="stat-icon">📺</div>
+        <div class="stat-value">0</div>
+        <div class="stat-label">Ads Watched</div>
       </div>
 
     </div>
 
-  </div>
+  </section>
 
 
   <!-- ADS -->
 
-  <div class="section">
+  <section class="section">
 
     <div class="section-title">
       Earn With Ads 📺
     </div>
 
 
-    <!-- LITE -->
+    <!-- LITE ADS -->
 
     <div class="ad-card">
 
-      <div class="ad-top">
+      <div class="ad-head">
 
         <div class="ad-icon lite-icon">
           🟢
@@ -428,34 +466,43 @@
 
         <div class="ad-info">
 
-          <div class="ad-name">
+          <div class="ad-title">
             Lite Ads
           </div>
 
           <div class="ad-description">
-            Simple ads with quick rewards
+            Simple advertisements with quick rewards.
           </div>
 
         </div>
 
       </div>
 
-      <div class="ad-reward">
-        Reward: $0.01 - $0.05
+      <div class="limit-row">
+        <span>Daily Limit</span>
+        <span>0 / 15</span>
       </div>
 
-      <button class="ad-button lite-button" onclick="openAd('Lite Ads')">
-        ▶️ Watch Ad
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="reward">
+        Reward: <span>$0.01 – $0.05</span> per ad
+      </div>
+
+      <button class="watch-btn" onclick="watchAd('Lite Ads')">
+        ▶ Watch Lite Ad
       </button>
 
     </div>
 
 
-    <!-- PRO -->
+    <!-- PRO ADS -->
 
     <div class="ad-card">
 
-      <div class="ad-top">
+      <div class="ad-head">
 
         <div class="ad-icon pro-icon">
           🔵
@@ -463,34 +510,43 @@
 
         <div class="ad-info">
 
-          <div class="ad-name">
+          <div class="ad-title">
             Pro Ads
           </div>
 
           <div class="ad-description">
-            Higher rewards for premium tasks
+            Higher-value advertisements for better rewards.
           </div>
 
         </div>
 
       </div>
 
-      <div class="ad-reward">
-        Reward: $0.05 - $0.20
+      <div class="limit-row">
+        <span>Daily Limit</span>
+        <span>0 / 15</span>
       </div>
 
-      <button class="ad-button pro-button" onclick="openAd('Pro Ads')">
-        ▶️ Watch Pro Ad
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="reward">
+        Reward: <span>$0.05 – $0.10</span> per ad
+      </div>
+
+      <button class="watch-btn" onclick="watchAd('Pro Ads')">
+        ▶ Watch Pro Ad
       </button>
 
     </div>
 
 
-    <!-- PREMIUM -->
+    <!-- PREMIUM ADS -->
 
     <div class="ad-card premium-card">
 
-      <div class="ad-top">
+      <div class="ad-head">
 
         <div class="ad-icon premium-icon">
           💎
@@ -498,46 +554,55 @@
 
         <div class="ad-info">
 
-          <div class="ad-name">
+          <div class="ad-title">
             Premium Ads
           </div>
 
           <div class="ad-description">
-            Unlock higher-value advertising rewards
+            Unlock premium ads with the highest rewards.
           </div>
 
         </div>
 
       </div>
 
-
       <div class="premium-price">
-        $10 <span>/ month</span>
+        $30 <small>/ month</small>
       </div>
 
-
-      <div class="ad-reward">
-        💎 Premium rewards unlocked
+      <div class="premium-note">
+        Premium membership required
       </div>
 
+      <div class="limit-row">
+        <span>Daily Limit</span>
+        <span>0 / 25</span>
+      </div>
 
-      <button class="ad-button premium-button" onclick="buyPremium()">
-        💎 Buy Premium
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="reward">
+        💎 Reward: <span>$0.10 – $0.20</span> per ad
+      </div>
+
+      <button class="watch-btn" onclick="buyPremium()">
+        💎 Buy Premium — $30/month
       </button>
 
     </div>
 
-  </div>
+  </section>
 
 
   <!-- QUICK ACTIONS -->
 
-  <div class="section">
+  <section class="section">
 
     <div class="section-title">
       Quick Actions
     </div>
-
 
     <div class="quick-card" onclick="openSection('Tasks')">
 
@@ -557,9 +622,7 @@
 
       </div>
 
-      <div class="arrow">
-        ›
-      </div>
+      <div class="arrow">›</div>
 
     </div>
 
@@ -582,9 +645,7 @@
 
       </div>
 
-      <div class="arrow">
-        ›
-      </div>
+      <div class="arrow">›</div>
 
     </div>
 
@@ -602,18 +663,16 @@
         </div>
 
         <div class="quick-sub">
-          Manage your balance and withdrawals
+          Manage balance and withdrawals
         </div>
 
       </div>
 
-      <div class="arrow">
-        ›
-      </div>
+      <div class="arrow">›</div>
 
     </div>
 
-  </div>
+  </section>
 
 
   <div class="footer">
@@ -623,63 +682,34 @@
 
   <!-- BOTTOM NAVIGATION -->
 
-  <div class="bottom-nav">
+  <nav class="bottom-nav">
 
-    <button class="nav-item active" onclick="openSection('Home')">
-
-      <div class="nav-icon">
-        🏠
-      </div>
-
+    <button class="nav active" onclick="openSection('Home')">
+      <div class="nav-icon">🏠</div>
       Home
-
     </button>
 
-
-    <button class="nav-item" onclick="openSection('Tasks')">
-
-      <div class="nav-icon">
-        📋
-      </div>
-
+    <button class="nav" onclick="openSection('Tasks')">
+      <div class="nav-icon">📋</div>
       Tasks
-
     </button>
 
-
-    <button class="nav-item" onclick="openSection('Refer')">
-
-      <div class="nav-icon">
-        👥
-      </div>
-
+    <button class="nav" onclick="openSection('Refer')">
+      <div class="nav-icon">👥</div>
       Refer
-
     </button>
 
-
-    <button class="nav-item" onclick="openSection('Wallet')">
-
-      <div class="nav-icon">
-        💰
-      </div>
-
+    <button class="nav" onclick="openSection('Wallet')">
+      <div class="nav-icon">💰</div>
       Wallet
-
     </button>
 
-
-    <button class="nav-item" onclick="openSection('Profile')">
-
-      <div class="nav-icon">
-        👤
-      </div>
-
+    <button class="nav" onclick="openSection('Profile')">
+      <div class="nav-icon">👤</div>
       Profile
-
     </button>
 
-  </div>
+  </nav>
 
 
   <script>
@@ -690,16 +720,16 @@
     tg.expand();
 
 
-    function dailyBonus() {
+    function claimBonus() {
 
       tg.showAlert(
-        "Daily Bonus will be available soon! 🎁"
+        "Daily Bonus will be connected soon! 🎁"
       );
 
     }
 
 
-    function openAd(type) {
+    function watchAd(type) {
 
       tg.showAlert(
         type + " system will be connected soon! 📺"
@@ -711,7 +741,7 @@
     function buyPremium() {
 
       tg.showAlert(
-        "Premium Membership: $10/month 💎"
+        "Premium Membership: $30/month 💎"
       );
 
     }
