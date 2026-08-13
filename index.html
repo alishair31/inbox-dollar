@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
 
   <title>Inbox Dollar</title>
 
@@ -11,301 +15,145 @@
   <style>
     * {
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0 0 95px;
-      background: #f4f6fa;
-      color: #111827;
       font-family: Arial, Helvetica, sans-serif;
-      font-weight: 700;
+      background: #080808;
+      color: #ffffff;
+      min-height: 100vh;
+      padding-bottom: 85px;
     }
 
     button {
       font-family: inherit;
-      font-weight: 800;
       cursor: pointer;
     }
 
-    /* HEADER */
-
-    .header {
-      background: linear-gradient(145deg, #0f172a, #263449);
-      color: white;
-      padding: 24px 18px 82px;
-      border-radius: 0 0 34px 34px;
+    .app {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding: 18px;
     }
 
-    .header-row {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 18px;
     }
 
-    .brand {
-      font-size: 25px;
+    .logo {
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: -0.6px;
+      letter-spacing: 1px;
     }
 
-    .welcome {
-      margin-top: 7px;
-      font-size: 12px;
-      font-weight: 800;
-      opacity: 0.75;
-    }
-
-    .avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.16);
-      font-size: 21px;
-    }
-
-    /* BALANCE */
-
-    .balance-card {
-      background: white;
-      margin: -52px 16px 23px;
-      padding: 22px;
-      border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(15,23,42,0.10);
-    }
-
-    .balance-label {
-      color: #8791a2;
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
+    .logo span {
+      color: #ffd400;
     }
 
     .balance {
-      margin: 7px 0 18px;
-      font-size: 38px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -1px;
+      background: #151515;
+      border: 1px solid #2c2c2c;
+      padding: 9px 13px;
+      border-radius: 14px;
+      color: #ffd400;
+      font-weight: 800;
     }
 
-    .bonus-btn {
+    .hero {
+      background: linear-gradient(145deg, #191919, #0d0d0d);
+      border: 1px solid #292929;
+      border-radius: 24px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.35);
+    }
+
+    .hero small {
+      color: #999;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      margin-top: 8px;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #ffd400;
+    }
+
+    .hero p {
+      color: #aaa;
+      margin-top: 9px;
+      line-height: 1.5;
+    }
+
+    .primary-btn {
       width: 100%;
       border: 0;
+      background: #ffd400;
+      color: #000;
+      font-size: 16px;
+      font-weight: 900;
       padding: 14px;
       border-radius: 14px;
-      background: #111827;
-      color: white;
-      font-size: 14px;
-      font-weight: 900;
+      margin-top: 17px;
     }
 
-    /* GENERAL */
+    .primary-btn:active {
+      transform: scale(.98);
+    }
 
     .section {
-      padding: 0 16px;
-      margin-top: 24px;
+      margin-top: 22px;
     }
 
     .section-title {
-      margin-bottom: 14px;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 900;
-      letter-spacing: -0.2px;
+      margin-bottom: 12px;
     }
 
-    /* STATS */
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .stat {
-      background: white;
+    .card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 18px;
       padding: 17px;
-      border-radius: 19px;
-      box-shadow: 0 5px 20px rgba(15,23,42,0.055);
+      margin-bottom: 12px;
     }
-
-    .stat-icon {
-      font-size: 23px;
-    }
-
-    .stat-value {
-      margin-top: 8px;
-      font-size: 21px;
-      font-weight: 900;
-    }
-
-    .stat-label {
-      margin-top: 5px;
-      color: #8993a5;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    /* ADS */
-
-    .ad-card {
-      background: white;
-      padding: 18px;
-      margin-bottom: 14px;
-      border-radius: 21px;
-      box-shadow: 0 6px 22px rgba(15,23,42,0.06);
-    }
-
-    .ad-head {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .ad-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 23px;
-      flex-shrink: 0;
-    }
-
-    .lite-icon {
-      background: #e9f8ef;
-    }
-
-    .pro-icon {
-      background: #edf2ff;
-    }
-
-    .premium-icon {
-      background: #f3e9ff;
-    }
-
-    .ad-info {
-      flex: 1;
-    }
-
-    .ad-title {
-      font-size: 17px;
-      font-weight: 900;
-    }
-
-    .ad-description {
-      margin-top: 4px;
-      color: #8993a5;
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 1.45;
-    }
-
-    /* LIMIT */
-
-    .limit-row {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 16px;
-      color: #737e90;
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .progress {
-      height: 7px;
-      background: #edf0f4;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 7px;
-    }
-
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background: #111827;
-      border-radius: 20px;
-    }
-
-    /* REWARD */
-
-    .reward {
-      margin-top: 14px;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .reward span {
-      font-weight: 900;
-    }
-
-    .watch-btn {
-      width: 100%;
-      border: 0;
-      padding: 13px;
-      margin-top: 14px;
-      border-radius: 13px;
-      background: #111827;
-      color: white;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    /* PREMIUM */
-
-    .premium-card {
-      border: 1px solid #ddc0ff;
-      background: linear-gradient(145deg, #ffffff, #faf3ff);
-    }
-
-    .premium-price {
-      margin-top: 16px;
-      font-size: 29px;
-      font-weight: 900;
-    }
-
-    .premium-price small {
-      color: #8993a5;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .premium-note {
-      margin-top: 4px;
-      color: #8993a5;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    /* QUICK ACTIONS */
 
     .quick-card {
       display: flex;
       align-items: center;
       gap: 13px;
-      background: white;
-      padding: 16px;
-      margin-bottom: 12px;
+      background: #121212;
+      border: 1px solid #292929;
       border-radius: 18px;
-      box-shadow: 0 5px 18px rgba(15,23,42,0.05);
+      padding: 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .quick-card:active {
+      transform: scale(.98);
     }
 
     .quick-icon {
       width: 45px;
       height: 45px;
-      border-radius: 13px;
-      background: #f0f2f6;
+      border-radius: 14px;
+      background: #222;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 21px;
+      align-items: center;
+      font-size: 22px;
     }
 
     .quick-text {
@@ -313,488 +161,980 @@
     }
 
     .quick-title {
-      font-size: 14px;
       font-weight: 900;
+      font-size: 15px;
     }
 
     .quick-sub {
+      color: #888;
+      font-size: 12px;
       margin-top: 4px;
-      color: #8993a5;
-      font-size: 11px;
-      font-weight: 700;
     }
 
     .arrow {
-      color: #9ba3b1;
-      font-size: 22px;
+      color: #ffd400;
+      font-size: 27px;
+      font-weight: bold;
     }
 
-    /* BOTTOM NAV */
+    .task-card {
+      background: #121212;
+      border: 1px solid #292929;
+      border-radius: 19px;
+      padding: 17px;
+      margin-bottom: 12px;
+    }
 
-    .bottom-nav {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 78px;
-      background: rgba(255,255,255,0.98);
-      border-top: 1px solid #e7eaf0;
+    .task-top {
       display: flex;
-      align-items: center;
-      justify-content: space-around;
-      z-index: 1000;
-      box-shadow: 0 -8px 25px rgba(15,23,42,0.07);
+      justify-content: space-between;
+      gap: 10px;
     }
 
-    .nav {
-      border: 0;
-      background: transparent;
-      color: #929baa;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 7px 9px;
-    }
-
-    .nav-icon {
-      font-size: 21px;
-      margin-bottom: 4px;
-    }
-
-    .nav.active {
-      color: #111827;
+    .task-name {
+      font-size: 16px;
       font-weight: 900;
     }
 
-    .footer {
+    .reward {
+      color: #ffd400;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .task-desc {
+      color: #999;
+      font-size: 13px;
+      margin-top: 8px;
+      line-height: 1.45;
+    }
+
+    .task-btn {
+      border: 0;
+      background: #ffd400;
+      color: #000;
+      font-weight: 900;
+      padding: 10px 14px;
+      border-radius: 11px;
+      margin-top: 13px;
+    }
+
+    .secondary-btn {
+      border: 1px solid #333;
+      background: #1a1a1a;
+      color: #fff;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-radius: 11px;
+      margin-top: 13px;
+      margin-left: 6px;
+    }
+
+    .plan {
+      border: 1px solid #333;
+      background: #111;
+      border-radius: 20px;
+      padding: 19px;
+      margin-bottom: 12px;
+    }
+
+    .plan.featured {
+      border: 1px solid #ffd400;
+      box-shadow: 0 0 22px rgba(255,212,0,.12);
+    }
+
+    .plan-title {
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .plan-price {
+      font-size: 27px;
+      font-weight: 900;
+      color: #ffd400;
+      margin-top: 8px;
+    }
+
+    .plan-desc {
+      color: #999;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .ad-count {
+      display: inline-block;
+      margin-top: 10px;
+      background: #242424;
+      color: #ffd400;
+      padding: 6px 10px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .ref-box {
       text-align: center;
-      margin: 27px 0;
-      color: #a0a8b5;
-      font-size: 10px;
+    }
+
+    .ref-code {
+      background: #090909;
+      border: 1px dashed #555;
+      padding: 13px;
+      border-radius: 12px;
+      margin-top: 14px;
+      color: #ffd400;
+      font-weight: 900;
+      word-break: break-all;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .stat {
+      flex: 1;
+      background: #171717;
+      border-radius: 15px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      color: #ffd400;
+    }
+
+    .stat small {
+      color: #888;
+    }
+
+    .leader {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid #252525;
+    }
+
+    .rank {
+      width: 30px;
+      font-weight: 900;
+      color: #ffd400;
+    }
+
+    .leader-name {
+      flex: 1;
+      font-weight: 800;
+    }
+
+    .leader-earn {
+      color: #aaa;
       font-weight: 700;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 30px 15px;
+      color: #888;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      background: rgba(10,10,10,.97);
+      border-top: 1px solid #292929;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 9px 6px calc(9px + env(safe-area-inset-bottom));
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      border: 0;
+      background: transparent;
+      color: #777;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 6px 2px;
+    }
+
+    .nav-btn span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .nav-btn.active {
+      color: #ffd400;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .notice {
+      color: #888;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 12px;
     }
   </style>
 </head>
 
 <body>
 
+<div class="app">
+
   <!-- HEADER -->
-
-  <header class="header">
-
-    <div class="header-row">
-
-      <div>
-        <div class="brand">Inbox Dollar 💰</div>
-        <div class="welcome">
-          Earn rewards. Complete tasks. Get paid.
-        </div>
-      </div>
-
-      <div class="avatar">
-        👤
-      </div>
-
+  <div class="header">
+    <div class="logo">
+      INBOX <span>DOLLAR</span> 📥
     </div>
 
-  </header>
-
-
-  <!-- BALANCE -->
-
-  <div class="balance-card">
-
-    <div class="balance-label">
-      Available Balance
-    </div>
-
-    <div class="balance">
+    <div class="balance" id="balance">
       $0.00
     </div>
+  </div>
 
-    <button class="bonus-btn" onclick="claimBonus()">
-      🎁 Claim Daily Bonus
-    </button>
+
+  <!-- HOME -->
+  <div id="homePage" class="page active">
+
+    <div class="hero">
+      <small>WELCOME TO INBOX DOLLAR</small>
+
+      <h1>Earn <span>More.</span><br>Get Paid.</h1>
+
+      <p>
+        Complete available tasks, earn rewards,
+        invite friends and build your balance.
+      </p>
+
+      <button class="primary-btn" onclick="openPage('tasks')">
+        📋 View Tasks
+      </button>
+    </div>
+
+
+    <div class="section">
+
+      <div class="section-title">
+        Quick Actions
+      </div>
+
+      <div class="quick-card" onclick="openPage('tasks')">
+        <div class="quick-icon">📋</div>
+
+        <div class="quick-text">
+          <div class="quick-title">Complete Tasks</div>
+          <div class="quick-sub">
+            Complete tasks and earn rewards
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+
+
+      <div class="quick-card" onclick="openPage('referral')">
+        <div class="quick-icon">👥</div>
+
+        <div class="quick-text">
+          <div class="quick-title">Refer & Earn</div>
+          <div class="quick-sub">
+            Invite friends and earn bonuses
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+
+
+      <div class="quick-card" onclick="openPage('payout')">
+        <div class="quick-icon">💰</div>
+
+        <div class="quick-text">
+          <div class="quick-title">Payout</div>
+          <div class="quick-sub">
+            Request your available balance
+          </div>
+        </div>
+
+        <div class="arrow">›</div>
+      </div>
+
+    </div>
+
+
+    <div class="section">
+
+      <div class="section-title">
+        Premium
+      </div>
+
+      <div class="plan featured">
+
+        <div class="plan-title">
+          💎 Premium Membership
+        </div>
+
+        <div class="plan-price">
+          $30/month
+        </div>
+
+        <div class="plan-desc">
+          Unlock premium features, higher earning
+          opportunities and premium task access.
+        </div>
+
+        <div class="ad-count">
+          💎 25 Premium Ads
+        </div>
+
+        <button class="primary-btn" onclick="buyPremium()">
+          Buy Premium — $30/month
+        </button>
+
+      </div>
+
+    </div>
 
   </div>
 
 
-  <!-- OVERVIEW -->
-
-  <section class="section">
+  <!-- TASKS -->
+  <div id="tasksPage" class="page">
 
     <div class="section-title">
-      Your Overview
+      📋 Available Tasks
     </div>
 
-    <div class="stats">
+    <div class="task-card">
+
+      <div class="task-top">
+        <div class="task-name">
+          🎁 Daily Check-in
+        </div>
+
+        <div class="reward">
+          +$0.10
+        </div>
+      </div>
+
+      <div class="task-desc">
+        Open the daily task and complete the required action.
+      </div>
+
+      <button
+        class="task-btn"
+        onclick="startTask('daily')">
+        Start Task
+      </button>
+
+    </div>
+
+
+    <div class="task-card">
+
+      <div class="task-top">
+        <div class="task-name">
+          🌐 Website Visit
+        </div>
+
+        <div class="reward">
+          +$0.15
+        </div>
+      </div>
+
+      <div class="task-desc">
+        Visit the assigned website and complete the task.
+      </div>
+
+      <button
+        class="task-btn"
+        onclick="startTask('website')">
+        Start Task
+      </button>
+
+    </div>
+
+
+    <div class="task-card">
+
+      <div class="task-top">
+        <div class="task-name">
+          📢 Social Task
+        </div>
+
+        <div class="reward">
+          +$0.20
+        </div>
+      </div>
+
+      <div class="task-desc">
+        Complete the assigned social engagement task.
+      </div>
+
+      <button
+        class="task-btn"
+        onclick="startTask('social')">
+        Start Task
+      </button>
+
+    </div>
+
+    <div class="notice">
+      Rewards shown here are demo values. Real task
+      verification and payouts will be connected to the backend.
+    </div>
+
+  </div>
+
+
+  <!-- REFERRAL -->
+  <div id="referralPage" class="page">
+
+    <div class="section-title">
+      👥 Refer & Earn
+    </div>
+
+    <div class="card ref-box">
+
+      <h2>Invite Friends</h2>
+
+      <p class="notice">
+        Share your referral link and earn referral rewards
+        when eligible users join.
+      </p>
+
+      <div class="ref-code" id="refLink">
+        Loading referral link...
+      </div>
+
+      <button class="primary-btn" onclick="copyReferral()">
+        📋 Copy Referral Link
+      </button>
+
+    </div>
+
+
+    <div class="stat-row">
 
       <div class="stat">
-        <div class="stat-icon">💵</div>
-        <div class="stat-value">$0.00</div>
-        <div class="stat-label">Today's Earnings</div>
+        <strong id="refCount">0</strong>
+        <small>Referrals</small>
       </div>
 
       <div class="stat">
-        <div class="stat-icon">📺</div>
-        <div class="stat-value">0</div>
-        <div class="stat-label">Ads Watched</div>
+        <strong id="refEarn">$0.00</strong>
+        <small>Earned</small>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+
+  <!-- PAYOUT -->
+  <div id="payoutPage" class="page">
+
+    <div class="section-title">
+      💰 Payout
+    </div>
+
+    <div class="card">
+
+      <h3>Available Balance</h3>
+
+      <div class="plan-price" id="payoutBalance">
+        $0.00
+      </div>
+
+      <p class="notice">
+        USDT payouts will be connected after the backend
+        and payment verification system are configured.
+      </p>
+
+      <button class="primary-btn" onclick="requestPayout()">
+        Request Payout
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- LEADERBOARD -->
+  <div id="leaderboardPage" class="page">
+
+    <div class="section-title">
+      🏆 Leaderboard
+    </div>
+
+    <div class="card">
+
+      <div class="leader">
+        <div class="rank">#1</div>
+        <div class="leader-name">Top Earner</div>
+        <div class="leader-earn">$125.40</div>
+      </div>
+
+      <div class="leader">
+        <div class="rank">#2</div>
+        <div class="leader-name">Reward Hunter</div>
+        <div class="leader-earn">$98.20</div>
+      </div>
+
+      <div class="leader">
+        <div class="rank">#3</div>
+        <div class="leader-name">Task Master</div>
+        <div class="leader-earn">$82.70</div>
+      </div>
+
+      <div class="leader">
+        <div class="rank">#4</div>
+        <div class="leader-name">Dollar Pro</div>
+        <div class="leader-earn">$61.30</div>
+      </div>
+
+      <div class="leader">
+        <div class="rank">#5</div>
+        <div class="leader-name">Inbox King</div>
+        <div class="leader-earn">$48.90</div>
+      </div>
+
+    </div>
+
+    <div class="notice">
+      Leaderboard data is currently demo data.
+      We will connect real user statistics later.
+    </div>
+
+  </div>
 
 
   <!-- ADS -->
-
-  <section class="section">
-
-    <div class="section-title">
-      Earn With Ads 📺
-    </div>
-
-
-    <!-- LITE ADS -->
-
-    <div class="ad-card">
-
-      <div class="ad-head">
-
-        <div class="ad-icon lite-icon">
-          🟢
-        </div>
-
-        <div class="ad-info">
-
-          <div class="ad-title">
-            Lite Ads
-          </div>
-
-          <div class="ad-description">
-            Simple advertisements with quick rewards.
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="limit-row">
-        <span>Daily Limit</span>
-        <span>0 / 15</span>
-      </div>
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-      <div class="reward">
-        Reward: <span>$0.01 – $0.05</span> per ad
-      </div>
-
-      <button class="watch-btn" onclick="watchAd('Lite Ads')">
-        ▶ Watch Lite Ad
-      </button>
-
-    </div>
-
-
-    <!-- PRO ADS -->
-
-    <div class="ad-card">
-
-      <div class="ad-head">
-
-        <div class="ad-icon pro-icon">
-          🔵
-        </div>
-
-        <div class="ad-info">
-
-          <div class="ad-title">
-            Pro Ads
-          </div>
-
-          <div class="ad-description">
-            Higher-value advertisements for better rewards.
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="limit-row">
-        <span>Daily Limit</span>
-        <span>0 / 15</span>
-      </div>
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-      <div class="reward">
-        Reward: <span>$0.05 – $0.10</span> per ad
-      </div>
-
-      <button class="watch-btn" onclick="watchAd('Pro Ads')">
-        ▶ Watch Pro Ad
-      </button>
-
-    </div>
-
-
-    <!-- PREMIUM ADS -->
-
-    <div class="ad-card premium-card">
-
-      <div class="ad-head">
-
-        <div class="ad-icon premium-icon">
-          💎
-        </div>
-
-        <div class="ad-info">
-
-          <div class="ad-title">
-            Premium Ads
-          </div>
-
-          <div class="ad-description">
-            Unlock premium ads with the highest rewards.
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="premium-price">
-        $30 <small>/ month</small>
-      </div>
-
-      <div class="premium-note">
-        Premium membership required
-      </div>
-
-      <div class="limit-row">
-        <span>Daily Limit</span>
-        <span>0 / 25</span>
-      </div>
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-      <div class="reward">
-        💎 Reward: <span>$0.10 </span> per ad
-      </div>
-
-      <button class="watch-btn" onclick="buyPremium()">
-        💎 Buy Premium — $30/month
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- QUICK ACTIONS -->
-
-  <section class="section">
+  <div id="adsPage" class="page">
 
     <div class="section-title">
-      Quick Actions
-    </div>
-
-    <div class="quick-card" onclick="openSection('Tasks')">
-
-      <div class="quick-icon">
-        📋
-      </div>
-
-      <div class="quick-text">
-
-        <div class="quick-title">
-          Complete Tasks
-        </div>
-
-        <div class="quick-sub">
-          Complete tasks and earn rewards
-        </div>
-
-      </div>
-
-      <div class="arrow">›</div>
-
+      📢 Ad Plans
     </div>
 
 
-    <div class="quick-card" onclick="openSection('Refer & Earn')">
+    <div class="plan">
 
-      <div class="quick-icon">
-        👥
+      <div class="plan-title">
+        🆓 Free Ads
       </div>
 
-      <div class="quick-text">
-
-        <div class="quick-title">
-          Refer & Earn
-        </div>
-
-        <div class="quick-sub">
-          Invite friends and earn rewards
-        </div>
-
+      <div class="plan-price">
+        FREE
       </div>
 
-      <div class="arrow">›</div>
+      <div class="plan-desc">
+        Basic advertising access.
+      </div>
+
+      <div class="ad-count">
+        15 Ads
+      </div>
 
     </div>
 
 
-    <div class="quick-card" onclick="openSection('Wallet')">
+    <div class="plan">
 
-      <div class="quick-icon">
-        💰
+      <div class="plan-title">
+        ⚡ Light Ads
       </div>
 
-      <div class="quick-text">
-
-        <div class="quick-title">
-          Wallet
-        </div>
-
-        <div class="quick-sub">
-          Manage balance and withdrawals
-        </div>
-
+      <div class="plan-price">
+        $15
       </div>
 
-      <div class="arrow">›</div>
+      <div class="plan-desc">
+        Light advertising package for advertisers.
+      </div>
+
+      <div class="ad-count">
+        15 Ads
+      </div>
+
+      <button
+        class="primary-btn"
+        onclick="buyAdPlan('Light')">
+        Choose Light
+      </button>
 
     </div>
 
-  </section>
+
+    <div class="plan">
+
+      <div class="plan-title">
+        🚀 Pro Ads
+      </div>
+
+      <div class="plan-price">
+        $15
+      </div>
+
+      <div class="plan-desc">
+        Pro advertising package with promotional placement.
+      </div>
+
+      <div class="ad-count">
+        15 Ads
+      </div>
+
+      <button
+        class="primary-btn"
+        onclick="buyAdPlan('Pro')">
+        Choose Pro
+      </button>
+
+    </div>
 
 
-  <div class="footer">
-    Inbox Dollar © 2026
-  </div>
+    <div class="plan featured">
 
+      <div class="plan-title">
+        💎 Premium Ads
+      </div>
 
-  <!-- BOTTOM NAVIGATION -->
+      <div class="plan-price">
+        $25
+      </div>
 
-  <nav class="bottom-nav">
+      <div class="plan-desc">
+        Premium advertising package with priority placement.
+      </div>
 
-    <button class="nav active" onclick="openSection('Home')">
-      <div class="nav-icon">🏠</div>
-      Home
-    </button>
+      <div class="ad-count">
+        25 Ads
+      </div>
 
-    <button class="nav" onclick="openSection('Tasks')">
-      <div class="nav-icon">📋</div>
-      Tasks
-    </button>
+      <button
+        class="primary-btn"
+        onclick="buyAdPlan('Premium')">
+        Choose Premium
+      </button>
 
-    <button class="nav" onclick="openSection('Refer')">
-      <div class="nav-icon">👥</div>
-      Refer
-    </button>
+    </div>
 
-    <button class="nav" onclick="openSection('Wallet')">
-      <div class="nav-icon">💰</div>
-      Wallet
-    </button>
-
-    <button class="nav" onclick="openSection('Profile')">
-      <div class="nav-icon">👤</div>
-      Profile
-    </button>
-
-  </nav>
-
-
-  <script>
-
-    const tg = window.Telegram.WebApp;
-
-    tg.ready();
-    tg.expand();
-
-
-    function claimBonus() {
-
-      tg.showAlert(
-        "Daily Bonus will be connected soon! 🎁"
-      );
-
-    }
-
-
-    function watchAd(type) {
-
-      tg.showAlert(
-        type + " system will be connected soon! 📺"
-      );
-
-    }
-
-
-    function buyPremium() {
-
-      tg.showAlert(
-        "Premium Membership: $30/month 💎"
-      );
-
-    }
-
-
-   function openSection(name) {
-
-  if (name === "Tasks") {
-    document.getElementById("tasksScreen").style.display = "block";
-    window.scrollTo(0, 0);
-    return;
-  }
-
-  tg.showAlert(name + " section will be added soon! 🚀");
-}
-
-function startTask() {
-
-  tg.showAlert("Task started! Complete the task and come back.");
-
-  document.getElementById("claimBtn").style.display = "inline-block";
-}
-
-function claimReward() {
-
-  tg.showAlert("Reward claimed! 🎉");
-
-}
-  </script>
-<!-- TASKS SCREEN -->
-<div id="tasksScreen" style="display:none; padding:20px;">
-
-  <h2>📋 Tasks</h2>
-
-  <div style="background:#f5f5f5; padding:16px; border-radius:15px; margin-top:15px;">
-    <h3>🎁 Daily Task</h3>
-    <p>Visit our website and complete the task.</p>
-    <strong>Reward: $0.10</strong>
-
-    <br><br>
-
-    <button onclick="startTask()"
-      style="padding:12px 20px; border:0; border-radius:10px;">
-      Start Task
-    </button>
-
-    <button id="claimBtn"
-      onclick="claimReward()"
-      style="display:none; padding:12px 20px; border:0; border-radius:10px;">
-      Claim $0.10
-    </button>
   </div>
 
 </div>
+
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+  <button
+    class="nav-btn active"
+    id="navHome"
+    onclick="openPage('home')">
+    <span>🏠</span>
+    Home
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navTasks"
+    onclick="openPage('tasks')">
+    <span>📋</span>
+    Tasks
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navReferral"
+    onclick="openPage('referral')">
+    <span>👥</span>
+    Refer
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navPayout"
+    onclick="openPage('payout')">
+    <span>💰</span>
+    Payout
+  </button>
+
+  <button
+    class="nav-btn"
+    id="navLeaderboard"
+    onclick="openPage('leaderboard')">
+    <span>🏆</span>
+    Rank
+  </button>
+
+</div>
+
+
+<script>
+
+  // Telegram Mini App
+  const tg = window.Telegram.WebApp;
+
+  tg.ready();
+  tg.expand();
+
+
+  // Demo balance
+  let balance = 0.00;
+
+
+  function updateBalance() {
+
+    document.getElementById("balance").innerText =
+      "$" + balance.toFixed(2);
+
+    document.getElementById("payoutBalance").innerText =
+      "$" + balance.toFixed(2);
+  }
+
+
+  // Page navigation
+  function openPage(page) {
+
+    const pages = [
+      "home",
+      "tasks",
+      "referral",
+      "payout",
+      "leaderboard",
+      "ads"
+    ];
+
+    pages.forEach(function(item) {
+
+      const element =
+        document.getElementById(item + "Page");
+
+      if (element) {
+        element.classList.remove("active");
+      }
+
+    });
+
+
+    const selected =
+      document.getElementById(page + "Page");
+
+    if (selected) {
+      selected.classList.add("active");
+    }
+
+
+    const navButtons = document.querySelectorAll(".nav-btn");
+
+    navButtons.forEach(function(button) {
+      button.classList.remove("active");
+    });
+
+
+    const navMap = {
+      home: "navHome",
+      tasks: "navTasks",
+      referral: "navReferral",
+      payout: "navPayout",
+      leaderboard: "navLeaderboard"
+    };
+
+
+    if (navMap[page]) {
+
+      document
+        .getElementById(navMap[page])
+        .classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  // Task system - demo
+  function startTask(type) {
+
+    let reward = 0;
+
+    if (type === "daily") {
+      reward = 0.10;
+    }
+
+    if (type === "website") {
+      reward = 0.15;
+    }
+
+    if (type === "social") {
+      reward = 0.20;
+    }
+
+
+    tg.showConfirm(
+      "Complete this task and claim $" +
+      reward.toFixed(2) +
+      " reward?",
+      function(confirmed) {
+
+        if (confirmed) {
+
+          balance += reward;
+
+          updateBalance();
+
+          tg.showAlert(
+            "Task completed! 🎉\nReward: $" +
+            reward.toFixed(2)
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  // Premium
+  function buyPremium() {
+
+    tg.showAlert(
+      "Premium Membership\n\n$30/month\n\nUSDT payment will be connected soon."
+    );
+
+  }
+
+
+  // Referral
+  function createReferralLink() {
+
+    const user =
+      tg.initDataUnsafe &&
+      tg.initDataUnsafe.user;
+
+    if (user && user.id) {
+
+      const link =
+        "https://t.me/InboxDollar_EarnBot?start=ref_" +
+        user.id;
+
+      document.getElementById("refLink").innerText =
+        link;
+
+    } else {
+
+      document.getElementById("refLink").innerText =
+        "Open this app from Telegram to get your referral link.";
+
+    }
+
+  }
+
+
+  function copyReferral() {
+
+    const text =
+      document.getElementById("refLink").innerText;
+
+    if (
+      navigator.clipboard &&
+      text.startsWith("https://")
+    ) {
+
+      navigator.clipboard.writeText(text);
+
+      tg.showAlert("Referral link copied! 📋");
+
+    } else {
+
+      tg.showAlert(
+        "Please open Inbox Dollar directly from Telegram."
+      );
+
+    }
+
+  }
+
+
+  // Payout
+  function requestPayout() {
+
+    if (balance <= 0) {
+
+      tg.showAlert(
+        "You don't have enough balance for a payout yet."
+      );
+
+      return;
+    }
+
+
+    tg.showAlert(
+      "Payout system will be connected to USDT after backend setup."
+    );
+
+  }
+
+
+  // Ad plans
+  function buyAdPlan(plan) {
+
+    if (plan === "Light") {
+
+      tg.showAlert(
+        "Light Ads\n\n$15\n15 Ads\n\nUSDT payment will be connected soon."
+      );
+
+    }
+
+    if (plan === "Pro") {
+
+      tg.showAlert(
+        "Pro Ads\n\n$15\n15 Ads\n\nUSDT payment will be connected soon."
+      );
+
+    }
+
+    if (plan === "Premium") {
+
+      tg.showAlert(
+        "Premium Ads\n\n$25\n25 Ads\n\nUSDT payment will be connected soon."
+      );
+
+    }
+
+  }
+
+
+  // Start
+  updateBalance();
+
+  createReferralLink();
+
+</script>
+
 </body>
 </html>
