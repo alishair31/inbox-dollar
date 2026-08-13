@@ -10,153 +10,721 @@
   <style>
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      background: #f4f6fa;
+      color: #172033;
+      padding-bottom: 85px;
     }
 
-    .header {
-      background: #111827;
+    .top {
+      background: linear-gradient(135deg, #111827, #263449);
       color: white;
-      padding: 25px 20px;
-      border-radius: 0 0 25px 25px;
+      padding: 24px 18px 70px;
+      border-radius: 0 0 30px 30px;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 26px;
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .header p {
-      margin: 8px 0 0;
-      opacity: 0.8;
+    .brand {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .welcome {
+      margin-top: 7px;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    .profile-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+    }
+
+    .balance-card {
+      background: white;
+      margin: -45px 16px 20px;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    .balance-label {
+      color: #7d8797;
+      font-size: 13px;
     }
 
     .balance {
-      background: white;
-      margin: -20px 20px 20px;
-      padding: 22px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      text-align: center;
+      font-size: 35px;
+      font-weight: 800;
+      margin: 5px 0 17px;
     }
 
-    .balance small {
-      color: #777;
-    }
-
-    .balance h2 {
-      margin: 8px 0;
-      font-size: 32px;
-    }
-
-    .bonus {
-      display: block;
+    .bonus-btn {
       width: 100%;
-      border: 0;
+      border: none;
       padding: 14px;
-      border-radius: 12px;
+      border-radius: 13px;
       background: #111827;
       color: white;
-      font-size: 16px;
-      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
     }
 
-    .grid {
+    .section {
+      padding: 0 16px;
+      margin-top: 23px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      padding: 0 20px;
+      gap: 12px;
     }
 
-    .card {
+    .stat-card {
       background: white;
-      padding: 22px 10px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-      cursor: pointer;
+      padding: 17px;
+      border-radius: 17px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
     }
 
-    .icon {
-      font-size: 30px;
-      margin-bottom: 8px;
+    .stat-icon {
+      font-size: 23px;
     }
 
-    .card b {
-      display: block;
+    .stat-number {
+      font-size: 20px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .stat-name {
+      color: #8a93a3;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    /* ADS */
+
+    .ad-card {
+      background: white;
+      border-radius: 19px;
+      padding: 18px;
+      margin-bottom: 13px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+    }
+
+    .ad-top {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ad-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+    }
+
+    .lite-icon {
+      background: #eaf8ef;
+    }
+
+    .pro-icon {
+      background: #edf2ff;
+    }
+
+    .premium-icon {
+      background: #f4eaff;
+    }
+
+    .ad-info {
+      flex: 1;
+    }
+
+    .ad-name {
       font-size: 16px;
+      font-weight: 800;
+    }
+
+    .ad-description {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #8a93a3;
+    }
+
+    .ad-reward {
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 15px;
+    }
+
+    .ad-button {
+      width: 100%;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 13px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .lite-button {
+      background: #111827;
+      color: white;
+    }
+
+    .pro-button {
+      background: #111827;
+      color: white;
+    }
+
+    .premium-card {
+      border: 1px solid #d9b8ff;
+      background: linear-gradient(145deg, #ffffff, #faf4ff);
+    }
+
+    .premium-price {
+      font-size: 25px;
+      font-weight: 900;
+      margin-top: 15px;
+    }
+
+    .premium-price span {
+      font-size: 12px;
+      color: #8a93a3;
+      font-weight: normal;
+    }
+
+    .premium-button {
+      background: #111827;
+      color: white;
+    }
+
+    /* QUICK ACTIONS */
+
+    .quick-card {
+      background: white;
+      padding: 16px;
+      border-radius: 17px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    .quick-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: #f0f2f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+    }
+
+    .quick-text {
+      flex: 1;
+    }
+
+    .quick-title {
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .quick-sub {
+      color: #8a93a3;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .arrow {
+      color: #8a93a3;
+      font-size: 20px;
+    }
+
+    /* BOTTOM NAV */
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 72px;
+      background: white;
+      border-top: 1px solid #e7eaf0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.06);
+    }
+
+    .nav-item {
+      border: none;
+      background: transparent;
+      color: #8a93a3;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 7px 9px;
+    }
+
+    .nav-icon {
+      font-size: 21px;
+    }
+
+    .nav-item.active {
+      color: #111827;
+      font-weight: 800;
     }
 
     .footer {
       text-align: center;
-      padding: 25px;
-      color: #888;
-      font-size: 13px;
+      color: #9aa2b1;
+      font-size: 11px;
+      margin: 25px 0;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>Inbox Dollar 💰</h1>
-    <p>Earn rewards with simple tasks</p>
+  <!-- HEADER -->
+
+  <div class="top">
+
+    <div class="top-row">
+
+      <div>
+        <div class="brand">Inbox Dollar 💰</div>
+        <div class="welcome">Welcome back 👋</div>
+      </div>
+
+      <div class="profile-icon">
+        👤
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="balance">
-    <small>Your Balance</small>
-    <h2>$0.00</h2>
-    <button class="bonus" onclick="dailyBonus()">
+
+  <!-- BALANCE -->
+
+  <div class="balance-card">
+
+    <div class="balance-label">
+      Available Balance
+    </div>
+
+    <div class="balance">
+      $0.00
+    </div>
+
+    <button class="bonus-btn" onclick="dailyBonus()">
       🎁 Claim Daily Bonus
     </button>
-  </div>
-
-  <div class="grid">
-
-    <div class="card" onclick="showMessage('Tasks')">
-      <div class="icon">📋</div>
-      <b>Tasks</b>
-    </div>
-
-    <div class="card" onclick="showMessage('Refer & Earn')">
-      <div class="icon">👥</div>
-      <b>Refer & Earn</b>
-    </div>
-
-    <div class="card" onclick="showMessage('Wallet')">
-      <div class="icon">💰</div>
-      <b>Wallet</b>
-    </div>
-
-    <div class="card" onclick="showMessage('Profile')">
-      <div class="icon">👤</div>
-      <b>Profile</b>
-    </div>
 
   </div>
+
+
+  <!-- OVERVIEW -->
+
+  <div class="section">
+
+    <div class="section-title">
+      Overview
+    </div>
+
+    <div class="stats">
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          💵
+        </div>
+
+        <div class="stat-number">
+          $0.00
+        </div>
+
+        <div class="stat-name">
+          Today's Earnings
+        </div>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <div class="stat-icon">
+          📋
+        </div>
+
+        <div class="stat-number">
+          0
+        </div>
+
+        <div class="stat-name">
+          Tasks Completed
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ADS -->
+
+  <div class="section">
+
+    <div class="section-title">
+      Earn With Ads 📺
+    </div>
+
+
+    <!-- LITE -->
+
+    <div class="ad-card">
+
+      <div class="ad-top">
+
+        <div class="ad-icon lite-icon">
+          🟢
+        </div>
+
+        <div class="ad-info">
+
+          <div class="ad-name">
+            Lite Ads
+          </div>
+
+          <div class="ad-description">
+            Simple ads with quick rewards
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="ad-reward">
+        Reward: $0.01 - $0.05
+      </div>
+
+      <button class="ad-button lite-button" onclick="openAd('Lite Ads')">
+        ▶️ Watch Ad
+      </button>
+
+    </div>
+
+
+    <!-- PRO -->
+
+    <div class="ad-card">
+
+      <div class="ad-top">
+
+        <div class="ad-icon pro-icon">
+          🔵
+        </div>
+
+        <div class="ad-info">
+
+          <div class="ad-name">
+            Pro Ads
+          </div>
+
+          <div class="ad-description">
+            Higher rewards for premium tasks
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="ad-reward">
+        Reward: $0.05 - $0.20
+      </div>
+
+      <button class="ad-button pro-button" onclick="openAd('Pro Ads')">
+        ▶️ Watch Pro Ad
+      </button>
+
+    </div>
+
+
+    <!-- PREMIUM -->
+
+    <div class="ad-card premium-card">
+
+      <div class="ad-top">
+
+        <div class="ad-icon premium-icon">
+          💎
+        </div>
+
+        <div class="ad-info">
+
+          <div class="ad-name">
+            Premium Ads
+          </div>
+
+          <div class="ad-description">
+            Unlock higher-value advertising rewards
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="premium-price">
+        $10 <span>/ month</span>
+      </div>
+
+
+      <div class="ad-reward">
+        💎 Premium rewards unlocked
+      </div>
+
+
+      <button class="ad-button premium-button" onclick="buyPremium()">
+        💎 Buy Premium
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- QUICK ACTIONS -->
+
+  <div class="section">
+
+    <div class="section-title">
+      Quick Actions
+    </div>
+
+
+    <div class="quick-card" onclick="openSection('Tasks')">
+
+      <div class="quick-icon">
+        📋
+      </div>
+
+      <div class="quick-text">
+
+        <div class="quick-title">
+          Complete Tasks
+        </div>
+
+        <div class="quick-sub">
+          Complete tasks and earn rewards
+        </div>
+
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </div>
+
+
+    <div class="quick-card" onclick="openSection('Refer & Earn')">
+
+      <div class="quick-icon">
+        👥
+      </div>
+
+      <div class="quick-text">
+
+        <div class="quick-title">
+          Refer & Earn
+        </div>
+
+        <div class="quick-sub">
+          Invite friends and earn rewards
+        </div>
+
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </div>
+
+
+    <div class="quick-card" onclick="openSection('Wallet')">
+
+      <div class="quick-icon">
+        💰
+      </div>
+
+      <div class="quick-text">
+
+        <div class="quick-title">
+          Wallet
+        </div>
+
+        <div class="quick-sub">
+          Manage your balance and withdrawals
+        </div>
+
+      </div>
+
+      <div class="arrow">
+        ›
+      </div>
+
+    </div>
+
+  </div>
+
 
   <div class="footer">
     Inbox Dollar © 2026
   </div>
 
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <div class="bottom-nav">
+
+    <button class="nav-item active" onclick="openSection('Home')">
+
+      <div class="nav-icon">
+        🏠
+      </div>
+
+      Home
+
+    </button>
+
+
+    <button class="nav-item" onclick="openSection('Tasks')">
+
+      <div class="nav-icon">
+        📋
+      </div>
+
+      Tasks
+
+    </button>
+
+
+    <button class="nav-item" onclick="openSection('Refer')">
+
+      <div class="nav-icon">
+        👥
+      </div>
+
+      Refer
+
+    </button>
+
+
+    <button class="nav-item" onclick="openSection('Wallet')">
+
+      <div class="nav-icon">
+        💰
+      </div>
+
+      Wallet
+
+    </button>
+
+
+    <button class="nav-item" onclick="openSection('Profile')">
+
+      <div class="nav-icon">
+        👤
+      </div>
+
+      Profile
+
+    </button>
+
+  </div>
+
+
   <script>
+
     const tg = window.Telegram.WebApp;
 
     tg.ready();
     tg.expand();
 
+
     function dailyBonus() {
-      tg.showAlert("Daily Bonus feature coming soon! 🎁");
+
+      tg.showAlert(
+        "Daily Bonus will be available soon! 🎁"
+      );
+
     }
 
-    function showMessage(name) {
-      tg.showAlert(name + " section coming soon! 🚀");
+
+    function openAd(type) {
+
+      tg.showAlert(
+        type + " system will be connected soon! 📺"
+      );
+
     }
+
+
+    function buyPremium() {
+
+      tg.showAlert(
+        "Premium Membership: $10/month 💎"
+      );
+
+    }
+
+
+    function openSection(name) {
+
+      tg.showAlert(
+        name + " section will be added soon! 🚀"
+      );
+
+    }
+
   </script>
 
 </body>
