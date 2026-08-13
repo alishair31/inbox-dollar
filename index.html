@@ -747,14 +747,29 @@
     }
 
 
-    function openSection(name) {
+   function openSection(name) {
 
-      tg.showAlert(
-        name + " section will be added soon! 🚀"
-      );
+  if (name === "Tasks") {
+    document.getElementById("tasksScreen").style.display = "block";
+    window.scrollTo(0, 0);
+    return;
+  }
 
-    }
+  tg.showAlert(name + " section will be added soon! 🚀");
+}
 
+function startTask() {
+
+  tg.showAlert("Task started! Complete the task and come back.");
+
+  document.getElementById("claimBtn").style.display = "inline-block";
+}
+
+function claimReward() {
+
+  tg.showAlert("Reward claimed! 🎉");
+
+}
   </script>
 <!-- TASKS SCREEN -->
 <div id="tasksScreen" style="display:none; padding:20px;">
