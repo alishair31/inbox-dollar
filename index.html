@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox Dollar</title>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    .header {
+      background: #111827;
+      color: white;
+      padding: 25px 20px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      opacity: 0.8;
+    }
+
+    .balance {
+      background: white;
+      margin: -20px 20px 20px;
+      padding: 22px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .balance small {
+      color: #777;
+    }
+
+    .balance h2 {
+      margin: 8px 0;
+      font-size: 32px;
+    }
+
+    .bonus {
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 14px;
+      border-radius: 12px;
+      background: #111827;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px 10px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      cursor: pointer;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .card b {
+      display: block;
+      font-size: 16px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Inbox Dollar 💰</h1>
+    <p>Earn rewards with simple tasks</p>
+  </div>
+
+  <div class="balance">
+    <small>Your Balance</small>
+    <h2>$0.00</h2>
+    <button class="bonus" onclick="dailyBonus()">
+      🎁 Claim Daily Bonus
+    </button>
+  </div>
+
+  <div class="grid">
+
+    <div class="card" onclick="showMessage('Tasks')">
+      <div class="icon">📋</div>
+      <b>Tasks</b>
+    </div>
+
+    <div class="card" onclick="showMessage('Refer & Earn')">
+      <div class="icon">👥</div>
+      <b>Refer & Earn</b>
+    </div>
+
+    <div class="card" onclick="showMessage('Wallet')">
+      <div class="icon">💰</div>
+      <b>Wallet</b>
+    </div>
+
+    <div class="card" onclick="showMessage('Profile')">
+      <div class="icon">👤</div>
+      <b>Profile</b>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Inbox Dollar © 2026
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+    tg.expand();
+
+    function dailyBonus() {
+      tg.showAlert("Daily Bonus feature coming soon! 🎁");
+    }
+
+    function showMessage(name) {
+      tg.showAlert(name + " section coming soon! 🚀");
+    }
+  </script>
+
+</body>
+</html>
